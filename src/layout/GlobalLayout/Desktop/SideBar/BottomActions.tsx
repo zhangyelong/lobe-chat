@@ -1,23 +1,21 @@
 import { ActionIcon, DiscordIcon, Icon } from '@lobehub/ui';
-import { Badge, ConfigProvider, Dropdown, MenuProps } from 'antd';
+import { Dropdown, MenuProps } from 'antd';
 import {
-  Book,
   Feather,
   FileClock,
-  Github,
   HardDriveDownload,
   HardDriveUpload,
   Heart,
   Settings,
   Settings2,
 } from 'lucide-react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-import { ABOUT, CHANGELOG, DISCORD, DOCUMENTS, FEEDBACK, GITHUB } from '@/const/url';
+import { ABOUT, CHANGELOG, DISCORD, FEEDBACK } from '@/const/url';
 import DataImporter from '@/features/DataImporter';
 import { configService } from '@/services/config';
 import { GlobalStore, useGlobalStore } from '@/store/global';
@@ -31,10 +29,7 @@ const BottomActions = memo<BottomActionProps>(({ tab }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
 
-  const [hasNewVersion, useCheckLatestVersion] = useGlobalStore((s) => [
-    s.hasNewVersion,
-    s.useCheckLatestVersion,
-  ]);
+  const [useCheckLatestVersion] = useGlobalStore((s) => [s.useCheckLatestVersion]);
 
   useCheckLatestVersion();
 
@@ -109,7 +104,8 @@ const BottomActions = memo<BottomActionProps>(({ tab }) => {
       key: 'setting',
       label: (
         <Flexbox align={'center'} distribution={'space-between'} gap={8} horizontal>
-          {t('setting')} {hasNewVersion && <Badge count={t('upgradeVersion.hasNew')} />}
+          {t('setting')}
+          {/* {hasNewVersion && <Badge count={t('upgradeVersion.hasNew')} />} */}
         </Flexbox>
       ),
       onClick: () => {
@@ -120,14 +116,14 @@ const BottomActions = memo<BottomActionProps>(({ tab }) => {
 
   return (
     <>
-      <Link aria-label={'GitHub'} href={GITHUB} target={'_blank'}>
+      {/* <Link aria-label={'GitHub'} href={GITHUB} target={'_blank'}>
         <ActionIcon icon={Github} placement={'right'} title={'GitHub'} />
       </Link>
       <Link aria-label={t('document')} href={DOCUMENTS} target={'_blank'}>
         <ActionIcon icon={Book} placement={'right'} title={t('document')} />
-      </Link>
+      </Link> */}
       <Dropdown arrow={false} menu={{ items }} trigger={['click']}>
-        {hasNewVersion ? (
+        {/* {hasNewVersion ? (
           <Flexbox>
             <ConfigProvider theme={{ components: { Badge: { dotSize: 8 } } }}>
               <Badge dot offset={[-4, 4]}>
@@ -137,7 +133,8 @@ const BottomActions = memo<BottomActionProps>(({ tab }) => {
           </Flexbox>
         ) : (
           <ActionIcon active={tab === SidebarTabKey.Setting} icon={Settings2} />
-        )}
+        )} */}
+        <ActionIcon active={tab === SidebarTabKey.Setting} icon={Settings2} />
       </Dropdown>
     </>
   );

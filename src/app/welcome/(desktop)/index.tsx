@@ -4,13 +4,13 @@ import { memo } from 'react';
 
 import ClientResponsiveContent from '@/components/client/ClientResponsiveContent';
 
-import Footer from './features/Footer';
+// import Footer from './features/Footer';
 import Showcase from './features/Showcase';
 
 const Desktop = memo(() => (
   <>
     <Showcase />
-    <Footer />
+    {/* <Footer /> */}
   </>
 ));
 

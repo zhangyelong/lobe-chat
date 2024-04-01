@@ -32,11 +32,11 @@
 
   ### Configure Environment Variables
 
-  When deploying LobeChat, you need to configure the following environment variables:
+  When deploying BianjieAI, you need to configure the following environment variables:
 
   | Environment Variable                     | Type | Description                                                                                          |
   | ------------------------ | -- | ------------------------------------------------------------------------------------------- |
-  | `ENABLE_OAUTH_SSO`       | Required | Enable Single Sign-On (SSO) for LobeChat. Set to `1` to enable SSO.                                                    |
+  | `ENABLE_OAUTH_SSO`       | Required | Enable Single Sign-On (SSO) for BianjieAI. Set to `1` to enable SSO.                                                    |
   | `NEXTAUTH_SECRET`        | Required | The secret used to encrypt Auth.js session tokens. You can generate a secret using the following command: `openssl rand -base64 32`                               |
   | `SSO_PROVIDERS`          | Required | Select the SSO provider for LoboChat. Use `authentik` for Authentik.                                  |
   | `AUTHENTIK_CLIENT_ID`     | Required | The Client ID from the Authentik application provider details page                                                          |
@@ -51,6 +51,6 @@
 </Steps>
 
 <Callout type={'info'}>
-  After a successful deployment, users will be able to use LobeChat by authenticating with the users configured in Authentik.
+  After a successful deployment, users will be able to use BianjieAI by authenticating with the users configured in Authentik.
 </Callout>
 
